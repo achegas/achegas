@@ -10,10 +10,10 @@ function getStoredProducts() {
 function getDefaultProducts() {
     return [
         {
-        name: "Mouse Gamer",
+        name: "Multilaser MO251 - Mouse Sem Fio 2.4 Ghz 1200 DPI Usb, Preto, normal",
         category: ["Eletrônicos", "Todos"],
         image: "https://m.media-amazon.com/images/I/71gbhPToXdL._AC_SX425_.jpg",
-        price: "R$ 99,99",
+        price: "R$ 22,90",
         amazonLink: "https://amzn.to/3QJj4Dj"
     },
     {
@@ -27,35 +27,35 @@ function getDefaultProducts() {
         name: "Kit 5 Camisetas Masculinas Básicas Lisa Poliéster Premium",
         category: ["Roupas", "Todos"],
         image: "https://m.media-amazon.com/images/I/41CAIk6E-EL._AC_SX679_.jpg",
-        price: "Preço não especificado",
+        price: "99,90",
         amazonLink: "https://amzn.to/3QKviLS"
     },
     {
-        name: "Greenote Aspirador sem fios",
+        name: "Greenote Aspirador sem fios, aspirador de vara 23000PA 6 em 1, potente aspirador leve para casa de 200W com faróis LED, tempo de funcionamento de 35 minutos, chão duro, carro para animais de estimação",
         category: ["Casa", "Todos"],
         image: "https://m.media-amazon.com/images/I/61yqC+pw5gL._AC_SX425_.jpg",
-        price: "Preço não especificado",
+        price: "1.594,78",
         amazonLink: "https://amzn.to/3Mth6V0"
     },
     {
         name: "Fritadeira sem óleo",
         category: ["Cozinha", "Todos"],
         image: "https://m.media-amazon.com/images/I/71zeBuMlz2L._AC_SY879_.jpg",
-        price: "Preço não especificado",
+        price: "369,00",
         amazonLink: "https://amzn.to/47mRUYt"
     },
     {
         name: "Processador AMD Ryzen 7 5800X, Cache 36MB, 3.8GHz (4.7GHz Max Turbo), AM4",
         category: ["Eletrônicos", "Todos"],
         image: "https://m.media-amazon.com/images/I/61IIbwz-+ML._AC_SX425_.jpg",
-        price: "Preço não especificado",
+        price: "1.519,00",
         amazonLink: "https://amzn.to/466tpxw"
     },
     {
         name: "Kit Frio Conjunto Termico Pelinho Elasticidade Segunda Pele Unissex",
         category: ["Roupas", "Todos"],
         image: "https://m.media-amazon.com/images/I/512JffOdCBL._AC_SX679_.jpg",
-        price: "Preço não especificado",
+        price: "R$77,99 - R$89,80",
         amazonLink: "https://amzn.to/40r1uHq"
     },
         // ... (outros produtos)
