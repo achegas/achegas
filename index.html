@@ -1,0 +1,98 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achegas - Sua Loja Online</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <img id="logo" src="/home/douglas/Imagens/site/logo.png" alt="Logo da Achegas">
+        <h1>Achegas</h1>
+    </header>
+
+    <!-- Barra de Navegação -->
+    <nav>
+        <ul>
+            <li><a href="#" onclick="loadDynamicContent('Todos')">Home</a></li>
+            <li><a href="#" onclick="loadDynamicContent('Todos')">Todos</a></li>
+            <li><a href="#" onclick="loadDynamicContent('Eletrônicos')">Eletrônicos</a></li>
+            <li><a href="#" onclick="loadDynamicContent('Roupas', 'roupas')">Roupas</a></li>
+            <li><a href="#" onclick="loadDynamicContent('Casa', 'casa')">Casa</a></li>
+            <li><a href="#" onclick="loadDynamicContent('Cozinha', 'cozinha')">Cozinha</a></li>
+        </ul>
+    </nav>
+
+    <!-- Campo de Busca -->
+    <div>
+        <label for="search">Buscar:</label>
+        <input type="text" id="search" placeholder="Digite o produto">
+        <button onclick="search()">Buscar</button>
+    </div>
+
+    <!-- Lista de Produtos -->
+    <main id="product-list">
+        <!-- Produtos serão adicionados aqui dinamicamente -->
+    </main>
+
+    <script src="produtos.js" async></script> <!-- Script com a definição da variável products -->
+    <script>
+        // Adiciona um listener para o evento "keypress" no campo de busca
+        document.getElementById("search").addEventListener("keypress", function (event) {
+            // Verifica se a tecla pressionada é Enter (código 13)
+            if (event.key === "Enter") {
+                search(); // Chama a função de pesquisa
+            }
+        });
+
+        // Restante do seu script principal
+        const menuButtons = document.querySelectorAll('nav a');
+
+        function setActiveButton(button) {
+            menuButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        menuButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                setActiveButton(button);
+                // Aqui, você pode chamar a função de carregamento dinâmico de conteúdo ou fazer qualquer outra coisa necessária
+                // Por exemplo, para a categoria Eletrônicos:
+                // loadDynamicContent('Eletrônicos', 'eletronicos');
+            });
+        });
+
+        // Função para carregar o conteúdo dinâmico
+        function loadDynamicContent(category, categoryClass) {
+            const dynamicContent = document.getElementById("product-list");
+            dynamicContent.innerHTML = '';
+
+            // Limpa o campo de pesquisa
+            document.getElementById("search").value = '';
+
+            let currentRow;
+
+            for (const product of products) {
+                if (category === 'Todos' || product.category.includes(category)) {
+                    if (!currentRow) {
+                        currentRow = document.createElement("div");
+                        currentRow.className = "product-row " + categoryClass;
+                        dynamicContent.appendChild(currentRow);
+                    }
+                    addProductToList(product, currentRow, category);
+                }
+            }
+        }
+
+        // Restante do seu script principal
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,154 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6a5acd;
+    padding: 20px;
+    color: #fff;
+}
+
+header h1 {
+    margin: 10px 0;
+}
+
+#logo {
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+    max-height: 80px; /* Ajuste a altura máxima conforme necessário */
+}
+
+nav {
+    background-color: #6a5acd;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+/* Adiciona espaçamento entre os botões do menu */
+nav a:not(:last-child) {
+    margin-right: 15px;
+}
+
+main {
+    margin: 20px;
+    text-align: center;
+}
+
+label {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+input {
+    padding: 8px;
+    font-size: 1em;
+}
+
+button {
+    padding: 8px 15px;
+    font-size: 1em;
+    background-color: #6a5acd;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Alinhamento à esquerda */
+    margin-bottom: 20px;
+}
+
+.product-row > li {
+    flex: 0 0 calc(20% - 20px);
+    margin-bottom: 20px;
+     margin-right: 20px; /* Adiciona espaçamento entre os produtos */
+    box-sizing: border-box;
+    width: calc(20% - 20px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 15px;
+    position: relative;
+
+    /* Adicione estas linhas para alinhar o preço acima do botão Comprar */
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .product-row > li {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+.price {
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+a {
+    display: block;
+    padding: 8px 0;
+    background-color: #6a5acd;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    nav a {
+        margin: 10px;
+        padding: 8px 10px; /* Ajuste o preenchimento para dispositivos móveis */
+    }
+
+    .product-row > li {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+nav a.active {
+    background-color: #8a7aff;
+}
+
