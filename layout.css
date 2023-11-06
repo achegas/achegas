@@ -102,6 +102,12 @@ ul {
     flex-direction: column;
 }
 
+.product-row > li img {
+    max-height: 200px; /* Defina a altura máxima desejada */
+    object-fit: cover; /* Garante que a imagem é cortada para se ajustar à caixa */
+    width: 100%; /* Certifica-se de que a largura se ajusta automaticamente */
+}
+
 @media (max-width: 768px) {
     .product-row > li {
         flex-basis: calc(50% - 20px);
@@ -115,8 +121,9 @@ ul {
 }
 
 img {
+    object-fit: cover;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 50%;
     width: auto;
     height: auto;
     border-radius: 5px;
@@ -151,4 +158,3 @@ a {
 nav a.active {
     background-color: #8a7aff;
 }
-
