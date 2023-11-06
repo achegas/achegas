@@ -38,7 +38,7 @@ function getDefaultProducts() {
         amazonLink: "https://amzn.to/3Mth6V0"
     },
     {
-        name: "Fritadeira sem óleo",
+        name: "Fritadeira Sem Óleo Air Fryer 4L, Mondial, Preto/Inox, 1500W, 110V ou 220 - AFN-40-BI",
         category: ["Cozinha", "Todos"],
         image: "https://m.media-amazon.com/images/I/71zeBuMlz2L._AC_SY879_.jpg",
         price: "369,00",
