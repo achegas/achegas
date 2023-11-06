@@ -113,7 +113,7 @@ ul {
 }
 
 .product-row > li img {
-    max-height: 200px; /* Defina a altura máxima desejada */
+    max-height: 300px; /* Defina a altura máxima desejada */
     object-fit: cover; /* Garante que a imagem é cortada para se ajustar à caixa */
     width: 100%; /* Certifica-se de que a largura se ajusta automaticamente */
 }
