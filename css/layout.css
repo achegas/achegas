@@ -66,6 +66,8 @@ input {
     padding: 8px;
     font-size: 1em;
     margin-right: 10px; /* Adiciona margem à direita do campo de busca */
+    margin-left: 10px; /* Adiciona margem à esquerda do campo de busca */
+    margin: 0 10px 5px 10px; /* Adiciona margem ao redor do campo de busca */
 }
 
 button {
@@ -168,18 +170,13 @@ nav a.active {
 }
 
 div {
-    margin-top: 10px; /* Adiciona margem ao div */
-}
-
-input {
-    padding: 8px;
-    font-size: 1em;
-    margin-right: 10px; /* Adiciona margem à direita do campo de busca */
-    margin: 0 10px 5px 10px; /* Adiciona margem ao redor do campo de busca */
+    margin-top: 0 10px; /* Adiciona margem ao div */
 }
 
 #search-container {
-    margin-right: 10px; /* Adiciona margem à direita do container de busca */
+    margin-top: 10px; /* Adiciona margem acima do container de busca */
+    margin-bottom: 10px; /* Adiciona margem abaixo do container de busca */
+    margin-left: 20px; /* Adiciona margem à esquerda do container de busca */
 }
 
 #search {
