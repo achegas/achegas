@@ -12,21 +12,28 @@ header {
     background-color: #F4DEF8;
     padding: 20px;
     color: #fff;
+    text-align: center; /* Centraliza o texto */
+}
+
+#logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adiciona margem inferior ao container */
+}
+
+header #logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;
+    margin-right: 10px; /* Adiciona margem à direita da logo */
 }
 
 header h1 {
-    margin: 10px 0;
-}
-
-#logo {
-    margin-bottom: 10px;
-    max-width: 100%;
-    height: auto;
-    max-height: 80px; /* Ajuste a altura máxima conforme necessário */
+    margin: 10px 0; /* Adiciona margem superior ao título */
 }
 
 nav {
-    background-color: #6a5acd;
+    background-color: #F4DEF8;
     padding: 10px;
     text-align: center;
 }
@@ -63,7 +70,7 @@ input {
 button {
     padding: 8px 15px;
     font-size: 1em;
-    background-color: #6a5acd;
+    background-color: #A046EA;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -136,7 +143,7 @@ p {
 a {
     display: block;
     padding: 8px 0;
-    background-color: #6a5acd;
+    background-color: #A046EA; //botoes menu
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -158,4 +165,3 @@ a {
 nav a.active {
     background-color: #8a7aff;
 }
-
