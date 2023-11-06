@@ -65,6 +65,7 @@ label {
 input {
     padding: 8px;
     font-size: 1em;
+    margin-right: 10px; /* Adiciona margem à direita do campo de busca */
 }
 
 button {
@@ -93,7 +94,7 @@ ul {
 .product-row > li {
     flex: 0 0 calc(20% - 20px);
     margin-bottom: 20px;
-     margin-right: 20px; /* Adiciona espaçamento entre os produtos */
+    margin-right: 20px; /* Adiciona espaçamento entre os produtos */
     box-sizing: border-box;
     width: calc(20% - 20px);
     display: flex;
@@ -143,7 +144,7 @@ p {
 a {
     display: block;
     padding: 8px 0;
-    background-color: #A046EA; //botoes menu
+    background-color: #A046EA; /* botoes menu */
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -164,4 +165,24 @@ a {
 
 nav a.active {
     background-color: #8a7aff;
+}
+
+div {
+    margin-top: 10px; /* Adiciona margem ao div */
+}
+
+input {
+    padding: 8px;
+    font-size: 1em;
+    margin-right: 10px; /* Adiciona margem à direita do campo de busca */
+    margin: 0 10px 5px 10px; /* Adiciona margem ao redor do campo de busca */
+}
+
+#search-container {
+    margin-right: 10px; /* Adiciona margem à direita do container de busca */
+}
+
+#search {
+    padding: 8px; /* Adiciona espaçamento interno ao campo de busca */
+    font-size: 1em;
 }
