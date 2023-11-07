@@ -21,7 +21,7 @@ header {
     display: flex;
     align-items: center;
     margin-bottom: 0px;
-     height: 120px; /* Ajuste a altura conforme necessário */
+     height: 130px; /* Ajuste a altura conforme necessário */
 }
 
 header #logo {
