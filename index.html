@@ -12,12 +12,12 @@
 
 <body>
     <!-- Cabeçalho -->
-   <header>
-    <div id="logo-container">
-        <img id="logo" src="img/logo.png" alt="Logo da Achegas">
-        <h1>Achegas</h1>
-    </div>
-</header>
+    <header>
+        <div id="logo-container">
+            <img id="logo" src="img/logo.png" alt="Logo da Achegas">
+            <h1>Achegas</h1>
+        </div>
+    </header>
 
     <!-- Barra de Navegação -->
     <nav>
@@ -30,86 +30,41 @@
         </ul>
     </nav>
 
-    <!-- Campo de Busca -->
-    <div id="search-container">
-    <label for="search">Buscar:</label>
-    <input type="text" id="search" placeholder="Digite o produto">
-    <button onclick="search()">Buscar</button>
+    <!-- Campo de Busca, Filtros e Ordenação -->
+    <div id="controls-container">
+        <div id="search-container">
+            <label for="search">Buscar:</label>
+            <input type="text" id="search" placeholder="Digite o produto">
+            <button onclick="search()">Buscar</button>
+        </div>
 
-         <label for="price-filter">Filtrar por preço:</label>
-    <select id="price-filter" onchange="filterByPrice()">
-        <option value="">Todos</option>
-        <option value="0-50">0 - 50</option>
-        <option value="51-100">51 - 100</option>
-        <option value="101-200">101 - 200</option>
-        <!-- Adicione mais opções conforme necessário -->
-    </select>
+        <!-- Filtros -->
+        <div id="filters-container">
+            <label for="price-range">Filtrar por preço:</label>
+            <input type="range" id="price-range" min="30" max="2000" step="50" value="2000">
+            <span id="selected-price">R$ 0 á R$ 2000</span>
+        </div>
 
-    <label for="sort-order">Ordenar por:</label>
-    <select id="sort-order" onchange="sortBy()">
-        <option value="recentes">Mais recentes</option>
-        <option value="preco-asc">Preço - Menor para Maior</option>
-        <option value="preco-desc">Preço - Maior para Menor</option>
-        <!-- Adicione mais opções conforme necessário -->
-    </select>
-	</div>
+        <!-- Ordenação -->
+        <div id="sort-container">
+            <label for="sort-order">Ordenar por:</label>
+            <select id="sort-order" onchange="sortBy()">
+                <option value="todos">Todos</option>
+                <option value="recentes">Mais recentes</option>
+                <option value="menos-recentes">Menos recentes</option>
+                <option value="preco-asc">Preço - Menor para Maior</option>
+                <option value="preco-desc">Preço - Maior para Menor</option>
+            </select>
+        </div>
+    </div>
 
     <!-- Lista de Produtos -->
     <main id="product-list">
         <!-- Produtos serão adicionados aqui dinamicamente -->
     </main>
 
-    <script src="produtos/produtos.js" async></script> <!-- Script com a definição da variável products -->
-    <script>
-        // Adiciona um listener para o evento "keypress" no campo de busca
-        document.getElementById("search").addEventListener("keypress", function (event) {
-            // Verifica se a tecla pressionada é Enter (código 13)
-            if (event.key === "Enter") {
-                search(); // Chama a função de pesquisa
-            }
-        });
-
-        // Restante do seu script principal
-        const menuButtons = document.querySelectorAll('nav a');
-
-        function setActiveButton(button) {
-            menuButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-        }
-
-        menuButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                setActiveButton(button);
-                // Aqui, você pode chamar a função de carregamento dinâmico de conteúdo ou fazer qualquer outra coisa necessária
-                // Por exemplo, para a categoria Eletrônicos:
-                // loadDynamicContent('Eletrônicos', 'eletronicos');
-            });
-        });
-
-        // Função para carregar o conteúdo dinâmico
-        function loadDynamicContent(category, categoryClass) {
-            const dynamicContent = document.getElementById("product-list");
-            dynamicContent.innerHTML = '';
-
-            // Limpa o campo de pesquisa
-            document.getElementById("search").value = '';
-
-            let currentRow;
-
-            for (const product of products) {
-                if (category === 'Todos' || product.category.includes(category)) {
-                    if (!currentRow) {
-                        currentRow = document.createElement("div");
-                        currentRow.className = "product-row " + categoryClass;
-                        dynamicContent.appendChild(currentRow);
-                    }
-                    addProductToList(product, currentRow, category);
-                }
-            }
-        }
-
-        // Restante do seu script principal
-    </script>
+    <script src="produtos/produtos.js"></script> <!-- Script com a definição da variável products -->
+    
 </body>
 
 </html>
