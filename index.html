@@ -35,7 +35,24 @@
     <label for="search">Buscar:</label>
     <input type="text" id="search" placeholder="Digite o produto">
     <button onclick="search()">Buscar</button>
-</div>
+
+         <label for="price-filter">Filtrar por preço:</label>
+    <select id="price-filter" onchange="filterByPrice()">
+        <option value="">Todos</option>
+        <option value="0-50">0 - 50</option>
+        <option value="51-100">51 - 100</option>
+        <option value="101-200">101 - 200</option>
+        <!-- Adicione mais opções conforme necessário -->
+    </select>
+
+    <label for="sort-order">Ordenar por:</label>
+    <select id="sort-order" onchange="sortBy()">
+        <option value="recentes">Mais recentes</option>
+        <option value="preco-asc">Preço - Menor para Maior</option>
+        <option value="preco-desc">Preço - Maior para Menor</option>
+        <!-- Adicione mais opções conforme necessário -->
+    </select>
+	</div>
 
     <!-- Lista de Produtos -->
     <main id="product-list">
