@@ -75,6 +75,14 @@ function getDefaultProducts() {
             amazonLink: "https://amzn.to/40r1uHq",
             date: new Date("2023-10-05"), // Adicione uma data para representar a data de lançamento
         },
+        {
+            name: "Sparta Maleta de ferramentas kit com 129 peças",
+            category: ["Eletrônicos", "Todos"],
+            image: "https://m.media-amazon.com/images/I/61ZmjmMLsRL._AC_SX679_.jpg",
+            price: "R$ 98,31",
+            amazonLink: "https://amzn.to/3QOUDVa",
+            date: new Date("2023-10-07"), // Adicione uma data para representar a data de lançamento
+        },
         // ... (outros produtos)
     ];
 }
@@ -82,19 +90,29 @@ function getDefaultProducts() {
 // Carrega os produtos
 const products = getStoredProducts();
 
-// Função para adicionar um produto à lista
 function addProductToList(product, currentRow, category) {
     const listItem = document.createElement("li");
+    const imageContainer = document.createElement("div"); // Container para a imagem e a tag "Novidade"
     const image = document.createElement("img");
+    const novidadeTag = document.createElement("span"); // Tag "Novidade"
+
+    image.src = product.image;
+    novidadeTag.innerText = "Novidade";
+
+    const numericPrice = parseFloat(product.price.replace("R$", "").replace(".", "").replace(",", "."));
+
+    if (numericPrice && isNewProduct(product)) {
+        novidadeTag.classList.add("new-product-tag");
+        imageContainer.appendChild(novidadeTag);
+    }
+
+    imageContainer.appendChild(image);
+
     const name = document.createElement("p");
     const price = document.createElement("p");
     const buyButton = document.createElement("a");
 
-    image.src = product.image;
     name.innerText = product.name;
-    
-    	const numericPrice = parseFloat(product.price.replace("R$", "").replace(".", "").replace(",", "."));
-    	
     price.innerText = formatMoney(product.price);
     buyButton.innerText = "Comprar";
     buyButton.href = product.amazonLink;
@@ -106,12 +124,23 @@ function addProductToList(product, currentRow, category) {
     // Adicione o atributo data-category diretamente no item
     listItem.setAttribute("data-category", category);
 
-    listItem.appendChild(image);
+    listItem.appendChild(imageContainer);
     listItem.appendChild(name);
     listItem.appendChild(price);
     listItem.appendChild(buyButton);
 
     currentRow.appendChild(listItem);
+}
+
+function isNewProduct(product) {
+    const currentDate = new Date();
+    const productDate = new Date(product.date);
+    const timeDifference = Math.abs(currentDate - productDate);
+    const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+    console.log(`Product: ${product.name}, Days Difference: ${daysDifference}`);
+
+    return daysDifference <= 7; // Define o limite de 7 dias para ser considerado um novo produto
 }
 
         document.getElementById("search").addEventListener("keypress", function (event) {
@@ -164,11 +193,17 @@ function addProductToList(product, currentRow, category) {
 
             if (!isNaN(numericValue)) {
                 selectedPriceElement.innerText = `R$ 0 - R$ ${numericValue.toFixed(2)}`;
-                filterByPriceRange(numericValue);
+                filterByPriceRange(numericValue, getCategoryClass());
+
             } else {
                 console.error("Invalid price range value");
             }
         }
+
+	function getCategoryClass() {
+    const activeButton = document.querySelector('.active');
+    return activeButton ? activeButton.innerText.toLowerCase() : 'todos';
+}
 
         function addProductToList(product, currentRow, category) {
             const listItem = document.createElement("li");
@@ -224,32 +259,32 @@ function addProductToList(product, currentRow, category) {
         }
 
         function filterByPriceRange(rangeValue) {
-            const dynamicContent = document.getElementById("product-list");
-            dynamicContent.innerHTML = '';
+    const dynamicContent = document.getElementById("product-list");
+    dynamicContent.innerHTML = '';
 
-            let currentRow;
-            let foundResults = false;
+    let currentRow;
+    let foundResults = false;
 
-            for (const product of products) {
-                const productPrice = parseFloat(product.price.replace("R$", "").replace(".", "").replace(",", "."));
+    for (const product of products) {
+        const productPrice = parseFloat(product.price.replace("R$", "").replace(".", "").replace(",", "."));
 
-                if (!isNaN(productPrice) && productPrice <= rangeValue) {
-                    if (!currentRow) {
-                        currentRow = document.createElement("div");
-                        currentRow.className = "product-row";
-                        dynamicContent.appendChild(currentRow);
-                    }
-                    addProductToList(product, currentRow, 'Filtro');
-                    foundResults = true;
-                }
+        if (!isNaN(productPrice) && productPrice <= rangeValue) {
+            if (!currentRow) {
+                currentRow = document.createElement("div");
+                currentRow.className = "product-row";
+                dynamicContent.appendChild(currentRow);
             }
-
-            if (!foundResults) {
-                const noResultsMessage = document.createElement("p");
-                noResultsMessage.innerText = "Nenhum resultado encontrado.";
-                dynamicContent.appendChild(noResultsMessage);
-            }
+            addProductToList(product, currentRow, product.category[1]);  // Alteração aqui
+            foundResults = true;
         }
+    }
+
+    if (!foundResults) {
+        const noResultsMessage = document.createElement("p");
+        noResultsMessage.innerText = "Nenhum resultado encontrado.";
+        dynamicContent.appendChild(noResultsMessage);
+    }
+}
 
         function sortBy() {
             const sortOrder = document.getElementById("sort-order").value;
