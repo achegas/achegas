@@ -218,3 +218,16 @@ div {
 #search-container, #filters-container, #sort-container {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.new-product-tag {
+    position: absolute;
+    top: 5px; /* Ajuste conforme necessário para o posicionamento desejado */
+    left: 5px; /* Ajuste conforme necessário para o posicionamento desejado */
+    background-color: #FF0000; /* Vermelho */
+    color: #FFFFFF; /* Branco */
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1; /* Garante que a tag esteja acima da imagem */
+}
