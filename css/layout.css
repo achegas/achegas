@@ -5,36 +5,41 @@ body {
     padding: 0;
 }
 
-header {
+header, nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0px 5px;
+}
+
+header {
     background-color: #F4DEF8;
-    padding: 20px;
     color: #fff;
-    text-align: center;
 }
 
 #logo-container {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+     height: 120px; /* Ajuste a altura conforme necessário */
 }
 
 header #logo {
     max-width: 100%;
     height: auto;
     max-height: 150px;
-    margin-right: 10px;
+    margin-right: 0px;
 }
 
 header h1 {
-    margin: 10px 0;
+     margin: 10px 0;
+    color: #A046EA; /* Tom de roxo forte */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Efeito de sombra */
 }
 
 nav {
     background-color: #F4DEF8;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
 }
 
@@ -61,10 +66,7 @@ label {
     margin-right: 5px;
 }
 
-input,
-#price-range,
-#sort-order,
-button {
+input, #price-range, #sort-order, button {
     padding: 8px;
     font-size: 0.8em;
     margin: 0 5px 5px 0;
@@ -79,18 +81,11 @@ button {
     border-radius: 5px;
 }
 
-ul {
+ul, .product-row {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.product-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-bottom: 20px;
 }
 
 .product-row > li {
@@ -106,8 +101,6 @@ ul {
     background-color: #fff;
     padding: 15px;
     position: relative;
-    display: flex;
-    flex-direction: column;
 }
 
 .product-row > li img {
@@ -125,22 +118,24 @@ ul {
         flex-direction: column;
     }
 
-    #search-container,a
-    #filters-container,
-    #sort-container {
+    #search-container, #filters-container, #sort-container {
         flex-basis: calc(50% - 10px);
+        width: calc(100% - 10px);
     }
 
-    #price-range,
-    #sort-order,
-    #search-container button {
+    #price-range, #sort-order, #search-container button {
         width: 100%;
+        padding: 6px;
+        font-size: 0.7em;
     }
 
-    #search,
-    #price-range,
-    #sort-order {
+    #search, #price-range, #sort-order {
         margin-bottom: 10px;
+    }
+
+    #search-container button {
+        padding: 6px;
+        font-size: 0.7em;
     }
 }
 
@@ -189,9 +184,7 @@ div {
     flex-wrap: wrap;
 }
 
-#search-container,
-#filters-container,
-#sort-container {
+#search-container, #filters-container, #sort-container {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -203,9 +196,7 @@ div {
     align-items: center;
 }
 
-#search-container label,
-#filters-container label,
-#sort-container label {
+#search-container label, #filters-container label, #sort-container label {
     text-align: right;
     margin-right: 5px;
 }
@@ -220,35 +211,10 @@ div {
     align-self: stretch;
 }
 
-#search,
-#price-range,
-#sort-order {
+#search, #price-range, #sort-order {
     flex: 1;
 }
 
-#search-container,
-#filters-container,
-#sort-container {
+#search-container, #filters-container, #sort-container {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    #search-container,
-    #sort-container,
-    #filters-container {
-        flex-basis: calc(50% - 10px);
-        width: calc(100% - 10px);
-    }
-
-    #search,
-    #sort-order,
-    #search-container button {
-        width: 100%;
-    }
-
-    #search,
-    #price-range,
-    #sort-order {
-        margin-bottom: 10px;
-    }
 }
