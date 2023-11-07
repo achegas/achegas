@@ -12,24 +12,24 @@ header {
     background-color: #F4DEF8;
     padding: 20px;
     color: #fff;
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
 }
 
 #logo-container {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; /* Adiciona margem inferior ao container */
+    margin-bottom: 10px;
 }
 
 header #logo {
     max-width: 100%;
     height: auto;
     max-height: 150px;
-    margin-right: 10px; /* Adiciona margem à direita da logo */
+    margin-right: 10px;
 }
 
 header h1 {
-    margin: 10px 0; /* Adiciona margem superior ao título */
+    margin: 10px 0;
 }
 
 nav {
@@ -47,7 +47,6 @@ nav a {
     padding: 8px 15px;
 }
 
-/* Adiciona espaçamento entre os botões do menu */
 nav a:not(:last-child) {
     margin-right: 15px;
 }
@@ -58,21 +57,21 @@ main {
 }
 
 label {
-    font-size: 1.2em;
-    margin-right: 10px;
+    font-size: 1em; /* Reduz o tamanho do rótulo */
+    margin-right: 5px; /* Adiciona um pequeno espaço à direita do rótulo */
 }
 
-input {
+input,
+#price-range,
+#sort-order,
+button {
     padding: 8px;
-    font-size: 1em;
-    margin-right: 10px; /* Adiciona margem à direita do campo de busca */
-    margin-left: 10px; /* Adiciona margem à esquerda do campo de busca */
-    margin: 0 10px 5px 10px; /* Adiciona margem ao redor do campo de busca */
+    font-size: 0.8em; /* Reduz o tamanho do texto */
+    margin: 0 5px 5px 0; /* Ajusta as margens */
+    box-sizing: border-box;
 }
 
 button {
-    padding: 8px 15px;
-    font-size: 1em;
     background-color: #A046EA;
     color: #fff;
     border: none;
@@ -89,14 +88,14 @@ ul {
 .product-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; /* Alinhamento à esquerda */
+    justify-content: flex-start;
     margin-bottom: 20px;
 }
 
 .product-row > li {
     flex: 0 0 calc(20% - 20px);
     margin-bottom: 20px;
-    margin-right: 20px; /* Adiciona espaçamento entre os produtos */
+    margin-right: 20px;
     box-sizing: border-box;
     width: calc(20% - 20px);
     display: flex;
@@ -106,16 +105,14 @@ ul {
     background-color: #fff;
     padding: 15px;
     position: relative;
-
-    /* Adicione estas linhas para alinhar o preço acima do botão Comprar */
     display: flex;
     flex-direction: column;
 }
 
 .product-row > li img {
-    max-height: 300px; /* Defina a altura máxima desejada */
-    object-fit: cover; /* Garante que a imagem é cortada para se ajustar à caixa */
-    width: 100%; /* Certifica-se de que a largura se ajusta automaticamente */
+    max-height: 200px;
+    object-fit: cover;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -146,7 +143,7 @@ p {
 a {
     display: block;
     padding: 8px 0;
-    background-color: #A046EA; /* botoes menu */
+    background-color: #A046EA;
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -157,7 +154,7 @@ a {
 @media (max-width: 768px) {
     nav a {
         margin: 10px;
-        padding: 8px 10px; /* Ajuste o preenchimento para dispositivos móveis */
+        padding: 8px 10px;
     }
 
     .product-row > li {
@@ -170,16 +167,70 @@ nav a.active {
 }
 
 div {
-    margin-top: 0 10px; /* Adiciona margem ao div */
+    margin-top: 0 10px;
 }
 
-#search-container {
-    margin-top: 10px; /* Adiciona margem acima do container de busca */
-    margin-bottom: 10px; /* Adiciona margem abaixo do container de busca */
-    margin-left: 20px; /* Adiciona margem à esquerda do container de busca */
+#controls-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-#search {
-    padding: 8px; /* Adiciona espaçamento interno ao campo de busca */
-    font-size: 1em;
+#search-container,
+#filters-container,
+#sort-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 1;
+    margin: 0 5px;
+    display: flex;
+    align-items: center; /* Centraliza as letras verticalmente */
+}
+
+#search-container label,
+#filters-container label,
+#sort-container label {
+    text-align: right; /* Alinha o texto à direita */
+    margin-right: 5px; /* Adiciona um espaço à direita do rótulo */
+}
+
+#search,
+#price-range,
+#sort-order {
+    flex: 1; /* Ocupa todo o espaço restante no contêiner */
+}
+
+#search-container button {
+    padding: 6px 10px; /* Reduz o tamanho do botão */
+    font-size: 0.8em; /* Reduz o tamanho do texto do botão */
+    background-color: #A046EA;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    align-self: stretch; /* Garante que o botão se estenda ao longo da altura do contêiner */
+}
+
+@media (max-width: 768px) {
+    #controls-container {
+        flex-direction: column;
+    }
+
+    #search-container label,
+    #filters-container label,
+    #sort-container label,
+    button {
+        flex: 1 1 100%; /* Em dispositivos menores, ocupam toda a largura disponível */
+        margin-right: 0; /* Remove a margem à direita para ocupar toda a largura */
+        margin-bottom: 5px; /* Adiciona espaçamento inferior entre os elementos */
+    }
+
+    #search,
+    #price-range,
+    #sort-order {
+        margin-bottom: 10px; /* Adiciona espaçamento inferior em dispositivos menores */
+    }
 }
