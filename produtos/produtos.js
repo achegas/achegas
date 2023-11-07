@@ -44,7 +44,7 @@ function getDefaultProducts() {
             date: new Date("2023-10-05"), // Adicione uma data para representar a data de lançamento
         },
         {
-            name: "Greenote Aspirador sem fios, aspirador de vara 23000PA 6 em 1, potente aspirador leve para casa de 200W com faróis LED, tempo de funcionamento de 35 minutos, chão duro, carro para animais de estimação",
+            name: "Greenote Aspirador sem fios, aspirador de vara 23000PA 6 em 1",
             category: ["Casa", "Todos"],
             image: "https://m.media-amazon.com/images/I/61yqC+pw5gL._AC_SX425_.jpg",
             price: "R$ 1.594,78",
