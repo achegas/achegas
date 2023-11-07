@@ -124,6 +124,58 @@ function search() {
     }
 }
 
+// Função para filtrar por preço
+function filterByPrice() {
+    const priceFilter = document.getElementById("price-filter").value;
+    const dynamicContent = document.getElementById("product-list");
+    dynamicContent.innerHTML = '';
+
+    let currentRow;
+
+    for (const product of products) {
+        const productPrice = parseFloat(product.price.replace("R$", "").replace(",", "."));
+
+        if ((priceFilter === "" || (priceFilter === "0-50" && productPrice <= 50) ||
+            (priceFilter === "51-100" && productPrice > 50 && productPrice <= 100) ||
+            (priceFilter === "101-200" && productPrice > 100 && productPrice <= 200))) {
+            if (!currentRow) {
+                currentRow = document.createElement("div");
+                currentRow.className = "product-row";
+                dynamicContent.appendChild(currentRow);
+            }
+            addProductToList(product, currentRow, 'Filtro');
+        }
+    }
+}
+
+// Função para ordenar os produtos
+function sortBy() {
+    const sortOrder = document.getElementById("sort-order").value;
+    const dynamicContent = document.getElementById("product-list");
+    dynamicContent.innerHTML = '';
+
+    let sortedProducts = [...products];
+
+    if (sortOrder === "recentes") {
+        sortedProducts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } else if (sortOrder === "preco-asc") {
+        sortedProducts.sort((a, b) => parseFloat(a.price.replace("R$", "").replace(",", ".")) - parseFloat(b.price.replace("R$", "").replace(",", ".")));
+    } else if (sortOrder === "preco-desc") {
+        sortedProducts.sort((a, b) => parseFloat(b.price.replace("R$", "").replace(",", ".")) - parseFloat(a.price.replace("R$", "").replace(",", ".")));
+    }
+
+    let currentRow;
+
+    for (const product of sortedProducts) {
+        if (!currentRow) {
+            currentRow = document.createElement("div");
+            currentRow.className = "product-row";
+            dynamicContent.appendChild(currentRow);
+        }
+        addProductToList(product, currentRow, 'Ordenado');
+    }
+}
+
 
 // Chamada inicial para carregar o conteúdo padrão (Todos os produtos)
 window.addEventListener('load', function () {
