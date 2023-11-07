@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f2f2f2;
     margin: 0;
     padding: 0;
@@ -57,8 +57,8 @@ main {
 }
 
 label {
-    font-size: 1em; /* Reduz o tamanho do rótulo */
-    margin-right: 5px; /* Adiciona um pequeno espaço à direita do rótulo */
+    font-size: 1em;
+    margin-right: 5px;
 }
 
 input,
@@ -66,8 +66,8 @@ input,
 #sort-order,
 button {
     padding: 8px;
-    font-size: 0.8em; /* Reduz o tamanho do texto */
-    margin: 0 5px 5px 0; /* Ajusta as margens */
+    font-size: 0.8em;
+    margin: 0 5px 5px 0;
     box-sizing: border-box;
 }
 
@@ -76,6 +76,7 @@ button {
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 ul {
@@ -119,6 +120,28 @@ ul {
     .product-row > li {
         flex-basis: calc(50% - 20px);
     }
+
+    #controls-container {
+        flex-direction: column;
+    }
+
+    #search-container,a
+    #filters-container,
+    #sort-container {
+        flex-basis: calc(50% - 10px);
+    }
+
+    #price-range,
+    #sort-order,
+    #search-container button {
+        width: 100%;
+    }
+
+    #search,
+    #price-range,
+    #sort-order {
+        margin-bottom: 10px;
+    }
 }
 
 .price {
@@ -151,17 +174,6 @@ a {
     margin-top: auto;
 }
 
-@media (max-width: 768px) {
-    nav a {
-        margin: 10px;
-        padding: 8px 10px;
-    }
-
-    .product-row > li {
-        flex-basis: calc(50% - 20px);
-    }
-}
-
 nav a.active {
     background-color: #8a7aff;
 }
@@ -188,49 +200,55 @@ div {
     flex: 1;
     margin: 0 5px;
     display: flex;
-    align-items: center; /* Centraliza as letras verticalmente */
+    align-items: center;
 }
 
 #search-container label,
 #filters-container label,
 #sort-container label {
-    text-align: right; /* Alinha o texto à direita */
-    margin-right: 5px; /* Adiciona um espaço à direita do rótulo */
+    text-align: right;
+    margin-right: 5px;
+}
+
+#search-container button {
+    padding: 6px 10px;
+    font-size: 0.8em;
+    background-color: #A046EA;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    align-self: stretch;
 }
 
 #search,
 #price-range,
 #sort-order {
-    flex: 1; /* Ocupa todo o espaço restante no contêiner */
+    flex: 1;
 }
 
-#search-container button {
-    padding: 6px 10px; /* Reduz o tamanho do botão */
-    font-size: 0.8em; /* Reduz o tamanho do texto do botão */
-    background-color: #A046EA;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    align-self: stretch; /* Garante que o botão se estenda ao longo da altura do contêiner */
+#search-container,
+#filters-container,
+#sort-container {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
-    #controls-container {
-        flex-direction: column;
+    #search-container,
+    #sort-container,
+    #filters-container {
+        flex-basis: calc(50% - 10px);
+        width: calc(100% - 10px);
     }
 
-    #search-container label,
-    #filters-container label,
-    #sort-container label,
-    button {
-        flex: 1 1 100%; /* Em dispositivos menores, ocupam toda a largura disponível */
-        margin-right: 0; /* Remove a margem à direita para ocupar toda a largura */
-        margin-bottom: 5px; /* Adiciona espaçamento inferior entre os elementos */
+    #search,
+    #sort-order,
+    #search-container button {
+        width: 100%;
     }
 
     #search,
     #price-range,
     #sort-order {
-        margin-bottom: 10px; /* Adiciona espaçamento inferior em dispositivos menores */
+        margin-bottom: 10px;
     }
 }
